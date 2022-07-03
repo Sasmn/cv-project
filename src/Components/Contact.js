@@ -10,7 +10,7 @@ function Contact(props) {
   }
 
   return (
-    <li className="shrink-0 basis-1/2 sm:basis-1/3 flex h-12">
+    <li className="shrink-0 basis-1/2 sm:basis-1/3 flex h-12 mt-2">
       <img
         src={props.imageSrc}
         alt="Phone icon"

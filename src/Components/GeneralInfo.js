@@ -21,7 +21,7 @@ function GeneralInfo() {
       <input
         type="text"
         placeholder="position"
-        className="ml-8 mr-16 mt-2 font-semibold text-xl w-60 max-w-[50%] h-8 bg-transparent pl-1 pr-1 rounded-xl focus:outline-none"
+        className="ml-8 m-r-4 mt-2 font-semibold text-xl w-[23%] h-8 bg-transparent pl-1 pr-1 rounded-xl focus:outline-none"
       ></input>
       <ul className="flex flex-1 flex-wrap basis-full md:basis-0 justify-around items-center p-2 border-t-2 border-gray-500 mt-6">
         <Contact name="Phone" imageSrc={phoneIcon} />
