@@ -10,7 +10,7 @@ function Contact(props) {
   }
 
   return (
-    <li className="flex h-12">
+    <li className="shrink-0 basis-1/2 sm:basis-1/3 flex h-12">
       <img
         src={props.imageSrc}
         alt="Phone icon"
@@ -21,8 +21,10 @@ function Contact(props) {
           {/* <p className="">user input</p> */}
           <input
             type={inputType}
-            className="bg-yellow-300 opacity-80 w-24 rounded-lg"
-          ></input>
+            placeholder="here"
+            autoComplete="off"
+            className="bg-transparent opacity-80 w-full pl-1 pr-1 text-base border-b-2 border-yellow-500 focus:bg-transparent focus:outline-none"
+          />
       </div>
     </li>
   );
