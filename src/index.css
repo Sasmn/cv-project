@@ -6,8 +6,27 @@
   box-sizing: border-box;
 }
 
-html{
+html {
   overflow: hidden;
+  font-size: 10px;
+}
+
+@media (min-width: 420px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
 }
 
 body {

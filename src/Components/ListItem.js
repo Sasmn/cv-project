@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TickButton from "./TickButton";
 
 const ListItem = () => {
   const [LineCompleted, setLineCompleted] = useState(false);
@@ -8,18 +9,19 @@ const ListItem = () => {
   }
 
   return (
-    <li className={`flex w-full justify-between ${LineCompleted && "pointer-events-none"}`}>
+    <li
+      className={`flex w-40 sm:w-56 md:w-60 lg:w-96 overflow-hidden justify-between ${
+        LineCompleted && "pointer-events-none"
+      }`}
+    >
       <input
         type="text"
         disabled={LineCompleted}
-        className="grow-1 basis-3/4 max-w-3/4 border-b-2 border-yellow-300 overflow-hidden"
+        className={`basis-3/4 max-w-3/4 bg-transparent ${
+          !LineCompleted && "border-b-2 border-yellow-300"
+        } overflow-hidden`}
       />
-      <div className={`shrink-0 basis-1/4 flex justify-center ${LineCompleted && "opacity-0"}`}>
-        <div
-          onClick={handleClick}
-          className="inline-block rotate-45 h-6 w-3.5 border-green-600 border-b-4 border-r-4 cursor-pointer"
-        ></div>
-      </div>
+      <TickButton handleClick={handleClick} completed={LineCompleted} />
     </li>
   );
 };
