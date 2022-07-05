@@ -9,6 +9,10 @@ function Contact(props) {
     inputType = "email";
   }
 
+  const propName = props.name.toLowerCase();
+
+  console.log("e");
+
   return (
     <li className="shrink-0 basis-1/2 sm:basis-1/3 flex h-12 mt-2">
       <img
@@ -20,6 +24,9 @@ function Contact(props) {
         <h5 className="font-bold ">{props.name}</h5>
         <input
           type={inputType}
+          onChange={props.handleChange}
+          value={props.GeneralInfos[propName]}
+          name={propName}
           placeholder="here"
           autoComplete="off"
           className="bg-transparent opacity-80 w-full pl-1 pr-1 text-base border-b-2 border-yellow-500 min-w-0 focus:bg-transparent focus:outline-none"

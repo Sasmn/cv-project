@@ -1,20 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AddButton from "./AddButton";
 import ListItem from "./ListItem";
 
 const SkillGroups = (props) => {
-  const [SkillKeys, setSkillKeys] = useState([]);
+  const localStorageName = props.name + "Skills";
+  const [Skills, setSkills] = useState(
+    () =>
+      JSON.parse(localStorage.getItem(localStorageName)) || [
+        {
+          key: 0,
+          value: "",
+        },
+      ]
+  );
 
   function addSkillKey() {
-    setSkillKeys((prevKeys) => [
+    setSkills((prevKeys) => [
       ...prevKeys,
-      isNaN(prevKeys[prevKeys.length - 1])
-        ? 0
-        : prevKeys[prevKeys.length - 1] + 1,
+      {
+        key: prevKeys[prevKeys.length - 1].key + 1,
+        value: "",
+      },
     ]);
   }
 
-  const skillItems = SkillKeys.map((numb) => <ListItem key={numb} />);
+  function handleChange(e) {
+    let updatedData = Skills.map((skill) => {
+      if (skill.key.toString() === e.target.name) {
+        return {
+          ...skill,
+          value: e.target.value,
+        };
+      }
+      return skill;
+    });
+    setSkills(updatedData);
+  }
+
+  const skillItems = Skills.map((skill) => (
+    <ListItem key={skill.key} skill={skill} handleChange={handleChange} />
+  ));
+
+  useEffect(() => {
+    localStorage.setItem(localStorageName, JSON.stringify(Skills));
+  }, [Skills, localStorageName]);
 
   return (
     <div className="basis-1/2 grow-0 flex flex-wrap items-start h-min">

@@ -16,9 +16,9 @@ const DeleteOrEdit = (props) => {
       >
         <g
           className="group-hover:fill-yellow-300 group-hover:scale-110 origin-center duration-100"
-          clip-path="url(#a)"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          clipPath="url(#a)"
+          fillRule="evenodd"
+          clipRule="evenodd"
           fill="#000"
         >
           <path d="M21.707 7.293a1 1 0 0 1 0 1.414l-13 13A1 1 0 0 1 8 22H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 .293-.707l13-13a1 1 0 1 1 1.414 1.414L5 17.414V20h2.586L20.293 7.293a1 1 0 0 1 1.414 0z" />
@@ -39,15 +39,15 @@ const DeleteOrEdit = (props) => {
       >
         <path
           className="group-hover:fill-red-600 group-hover:scale-110 origin-center duration-100"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M6 7a1 1 0 0 1 1 1v11a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V8a1 1 0 1 1 2 0v11a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V8a1 1 0 0 1 1-1z"
           fill="#000"
         />
         <path
           className="group-hover:fill-red-600 group-hover:scale-110 origin-center duration-100"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M10 8a1 1 0 0 1 1 1v8a1 1 0 1 1-2 0V9a1 1 0 0 1 1-1zM14 8a1 1 0 0 1 1 1v8a1 1 0 1 1-2 0V9a1 1 0 0 1 1-1zM4 5a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1zM8 3a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1z"
           fill="#000"
         />
