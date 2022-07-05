@@ -10,7 +10,7 @@ const ListItem = () => {
 
   return (
     <li
-      className={`flex w-40 sm:w-56 md:w-60 lg:w-96 overflow-hidden justify-between ${
+      className={`basis-full flex overflow-hidden justify-between ${
         LineCompleted && "pointer-events-none"
       }`}
     >
