@@ -17,14 +17,12 @@ const SkillGroups = (props) => {
   const skillItems = SkillKeys.map((numb) => <ListItem key={numb} />);
 
   return (
-    <div className="basis-1/2 grow-0 shrink-0 overflow-hidden p-3 flex flex-wrap items-start h-min">
-      <h6 className="basis-3/4 text-lg font-bold h-8 overflow-hidden">
+    <div className="basis-1/2 grow-0 flex flex-wrap items-start h-min">
+      <h6 className="basis-3/4 grow-0 shrink-1 text-lg font-bold h-8 overflow-hidden">
         {props.name}
       </h6>
       <AddButton handleClick={addSkillKey} />
-      <ul className="basis-full flex flex-wrap gap-2 overflow-hidden">
-        {skillItems}
-      </ul>
+      <ul className="basis-full grow-0 flex flex-wrap gap-2">{skillItems}</ul>
     </div>
   );
 };

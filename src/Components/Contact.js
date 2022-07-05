@@ -17,14 +17,13 @@ function Contact(props) {
         className="m-1 pb-2 border-b-4 border-yellow-500"
       />
       <div className="flex flex-col">
-          <h5 className="font-bold ">{props.name}</h5>
-          {/* <p className="">user input</p> */}
-          <input
-            type={inputType}
-            placeholder="here"
-            autoComplete="off"
-            className="bg-transparent opacity-80 w-full pl-1 pr-1 text-base border-b-2 border-yellow-500 focus:bg-transparent focus:outline-none"
-          />
+        <h5 className="font-bold ">{props.name}</h5>
+        <input
+          type={inputType}
+          placeholder="here"
+          autoComplete="off"
+          className="bg-transparent opacity-80 w-full pl-1 pr-1 text-base border-b-2 border-yellow-500 min-w-0 focus:bg-transparent focus:outline-none"
+        />
       </div>
     </li>
   );

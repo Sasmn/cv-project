@@ -8,14 +8,14 @@ import Contact from "./Contact";
 function GeneralInfo() {
   //useState
   return (
-    <div className="flex flex-wrap box-border max-w-full overflow-hidden m-8 relative">
+    <div className="flex flex-wrap box-border max-w-full m-8 relative">
       <div className="w-28 h-28 bg-yellow-500 absolute -z-10 rounded-full"></div>
       <div className="flex-1 basis-full mt-8 ml-8">
         <input
           type="text"
           placeholder="name"
           autoComplete="off"
-          className="text-5xl font-bold bg-transparent w-96 max-w-[60%] h-14 pl-2 pr-2 rounded-2xl focus:outline-none"
+          className="text-5xl font-bold bg-transparent w-full max-w-full h-14 pl-2 pr-2 rounded-2xl min-w-0 focus:outline-none"
         />
       </div>
       <input
