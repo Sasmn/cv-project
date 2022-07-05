@@ -1,15 +1,14 @@
-import Education from "./Components/Education";
 import GeneralInfo from "./Components/GeneralInfo";
 import Skills from "./Components/Skills";
-import WorkExperience from "./Components/WorkExperience";
+import Experience from "./Components/Experience";
 
 function App() {
   return (
     <div className="w-full lg:w-5/6 ml-auto mr-auto shadow-2xl">
       <GeneralInfo />
       <Skills />
-      <WorkExperience />
-      <Education />
+      <Experience name="Work Experience" />
+      <Experience name="Education" />
     </div>
   );
 }

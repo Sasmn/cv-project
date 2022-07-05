@@ -1,6 +1,6 @@
 import React from "react";
 
-const OneWorkExp = () => {
+const OneExp = () => {
   function auto_height(e) {
     e.target.style.height = "1px";
     e.target.style.height = e.target.scrollHeight + "px";
@@ -28,7 +28,7 @@ const OneWorkExp = () => {
         </div>
         <input
           type="text"
-          placeholder="company"
+          placeholder="institution"
           className="basis-full overflow-hidden min-w-0 w-0"
         />
         <input
@@ -40,7 +40,7 @@ const OneWorkExp = () => {
       <div className="basis-3/5 md:basis-4/5 overflow-hidden h-min flex flex-wrap">
         <input
           type="text"
-          placeholder="position"
+          placeholder="name"
           className={`bg-gray-200 basis-full min-w-0 w-0`}
         />
         <textarea
@@ -54,4 +54,4 @@ const OneWorkExp = () => {
   );
 };
 
-export default OneWorkExp;
+export default OneExp;

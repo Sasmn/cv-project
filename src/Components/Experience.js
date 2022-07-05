@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import AddButton from "./AddButton";
-import OneWorkExp from "./OneWorkExp";
+import OneExp from "./OneExp";
 
-const WorkExperience = () => {
+const Experience = (props) => {
   const [ExperienceKey, SetExperienceKey] = useState([]);
 
   function addExpKey() {
@@ -15,18 +15,20 @@ const WorkExperience = () => {
   }
 
   const Experiences = ExperienceKey.map((exp) => {
-    return <OneWorkExp key={exp} />;
+    return <OneExp key={exp} />;
   });
 
   return (
     <div className="flex m-[2%] w-[96%] h-min">
       <div className="basis-1/4 shrink-0 h-min flex flex-wrap items-center">
-        <h2 className="border-b-2 max-w-min p-3 text-bold">Work Experience</h2>
+        <h2 className="border-b-2 max-w-min p-3 text-bold">{props.name}</h2>
         <AddButton handleClick={addExpKey} />
       </div>
-      <div className="basis-3/4 grow-0 flex flex-wrap h-min">{Experiences}</div>
+      <div className="basis-3/4 grow-0 flex flex-wrap gap-3 h-min border-t-4 border-yellow-300 pt-4">
+        {Experiences}
+      </div>
     </div>
   );
 };
 
-export default WorkExperience;
+export default Experience;
