@@ -4,7 +4,7 @@ import Experience from "./Components/Experience";
 
 function App() {
   return (
-    <div className="w-full lg:w-5/6 ml-auto mr-auto shadow-2xl">
+    <div className="w-full lg:w-5/6 ml-auto mr-auto shadow-2xl pt-5 pb-5">
       <GeneralInfo />
       <Skills />
       <Experience name="Work Experience" />
