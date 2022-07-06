@@ -32,7 +32,6 @@ const OneExp = (props) => {
             onChange={props.handleChange}
             name="from"
             value={props.exp.from}
-            data-key={props.data_key}
             type="number"
             placeholder="from"
             disabled={!props.exp.edit}
@@ -45,7 +44,6 @@ const OneExp = (props) => {
             onChange={props.handleChange}
             name="to"
             value={props.exp.to}
-            data-key={props.data_key}
             type="number"
             placeholder="to"
             disabled={!props.exp.edit}
@@ -58,7 +56,6 @@ const OneExp = (props) => {
           onChange={props.handleChange}
           name="institution"
           value={props.exp.institution}
-          data-key={props.data_key}
           type="text"
           placeholder="institution"
           disabled={!props.exp.edit}
@@ -68,7 +65,6 @@ const OneExp = (props) => {
           onChange={props.handleChange}
           name="city"
           value={props.exp.city}
-          data-key={props.data_key}
           type="text"
           placeholder="city"
           disabled={!props.exp.edit}
@@ -80,7 +76,6 @@ const OneExp = (props) => {
           onChange={props.handleChange}
           name="name"
           value={props.exp.name}
-          data-key={props.data_key}
           type="text"
           placeholder="name"
           disabled={!props.exp.edit}

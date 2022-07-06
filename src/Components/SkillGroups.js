@@ -32,12 +32,12 @@ const SkillGroups = (props) => {
     ]);
   }
 
-  function handleChange() {
+  function handleChange(e) {
     let updatedData = Skills.map((skill) => {
       if (skill.key === CurrentSkillItem.key) {
         return {
           ...skill,
-          value: CurrentSkillItem.value,
+          value: e.target.value,
         };
       }
       return skill;

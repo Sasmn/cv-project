@@ -25,7 +25,7 @@ const Experience = (props) => {
     (Experiences[0] && Experiences[0]) || ""
   );
 
-  console.log(currentExp);
+  // console.log(currentExp);
   function addExpKey() {
     SetExperiences((prevKeys) => [
       ...prevKeys,
@@ -42,12 +42,12 @@ const Experience = (props) => {
     ]);
   }
 
-  function handleChange() {
+  function handleChange(e) {
     let updatedData = Experiences.map((exp) => {
       if (exp.key === currentExp.key) {
         return {
           ...exp,
-          [currentExp.name]: currentExp.value,
+          [e.target.name]: e.target.value,
         };
       }
       return exp;
@@ -72,12 +72,11 @@ const Experience = (props) => {
     return (
       <OneExp
         key={exp.key}
-        data_key={exp.key}
         exp={exp}
+        setCurrentExp={setCurrentExp}
         toggleEdit={toggleEdit}
         handleChange={handleChange}
         deleteElement={deleteExpereience}
-        setCurrentExp={setCurrentExp}
       />
     );
   });
