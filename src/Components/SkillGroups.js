@@ -11,27 +11,33 @@ const SkillGroups = (props) => {
         {
           key: nanoid(),
           value: "",
+          edit: true,
         },
       ]
   );
 
-  function addSkillKey() {
+  const [CurrentSkillItem, setCurrentSkillItem] = useState(
+    (Skills[0] && Skills[0]) || ""
+  );
+
+  console.log(CurrentSkillItem);
+  function addSkillItem() {
     setSkills((prevKeys) => [
       ...prevKeys,
       {
         key: nanoid(),
         value: "",
+        edit: true,
       },
     ]);
   }
 
-  function handleChange(e) {
-    console.log(e.target, e.currentTarget);
+  function handleChange() {
     let updatedData = Skills.map((skill) => {
-      if (skill.key === e.target.name) {
+      if (skill.key === CurrentSkillItem.key) {
         return {
           ...skill,
-          value: e.target.value,
+          value: CurrentSkillItem.value,
         };
       }
       return skill;
@@ -39,12 +45,27 @@ const SkillGroups = (props) => {
     setSkills(updatedData);
   }
 
+  function toggleEdit() {
+    let newData = Skills.map((skill) => {
+      if (skill.key === CurrentSkillItem.key) {
+        return {
+          ...skill,
+          edit: !skill.edit,
+        };
+      }
+      return skill;
+    });
+    setSkills(newData);
+  }
+
   const skillItems = Skills.map((skill) => (
     <ListItem
       key={skill.key}
       skill={skill}
       handleChange={handleChange}
+      toggleEdit={toggleEdit}
       deleteElement={deleteListItem}
+      setCurrentSkillItem={setCurrentSkillItem}
     />
   ));
 
@@ -52,18 +73,10 @@ const SkillGroups = (props) => {
     localStorage.setItem(localStorageName, JSON.stringify(Skills));
   }, [Skills, localStorageName]);
 
-  function deleteListItem(e) {
-    const targetKey = e.currentTarget.dataset.key;
-    e.currentTarget.parentNode.parentNode.className += " animate-dropout";
-    e.currentTarget.parentNode.className = " !opacity-0";
-    setTimeout(function () {
-      setSkills((prevSkills) =>
-        prevSkills.filter((skill) => {
-          console.log(skill.key, targetKey);
-          return skill.key !== targetKey;
-        })
-      );
-    }, 100);
+  function deleteListItem() {
+    setSkills((prevSkills) =>
+      prevSkills.filter((skill) => skill.key !== CurrentSkillItem.key)
+    );
   }
 
   return (
@@ -71,7 +84,7 @@ const SkillGroups = (props) => {
       <h6 className="basis-3/4 grow-0 shrink-1 text-lg font-bold h-8 overflow-hidden">
         {props.name}
       </h6>
-      <AddButton handleClick={addSkillKey} />
+      <AddButton handleClick={addSkillItem} />
       <ul className="basis-full grow-0 flex flex-wrap gap-2">{skillItems}</ul>
     </div>
   );

@@ -3,25 +3,22 @@ import TickButton from "./TickButton";
 import DeleteOrEdit from "./DeleteOrEdit";
 
 const ListItem = (props) => {
-  const [LineCompleted, setLineCompleted] = useState(false);
-
-  function handleClick() {
-    setLineCompleted(true);
-  }
-
-  const [Visible, setVisible] = useState(false);
+  const [EditState, setEditState] = useState(false);
 
   function showEdit() {
-    setVisible(true);
+    setEditState(true);
   }
 
   function hideEdit() {
-    setVisible(false);
+    setEditState(false);
   }
 
   return (
     <li
-      onMouseEnter={showEdit}
+      onMouseEnter={() => {
+        showEdit();
+        props.setCurrentSkillItem(props.skill);
+      }}
       onMouseLeave={hideEdit}
       className={`basis-full flex animate-dropin origin-center relative`}
     >
@@ -30,17 +27,20 @@ const ListItem = (props) => {
         name={props.skill.key}
         value={props.skill.value}
         type="text"
-        disabled={LineCompleted}
-        className={`basis-3/4 grow-0 shrink max-w-3/4 px-2 py-0.5 bg-transparent min-w-0 w-0 ${
-          !LineCompleted && "border-b-2 border-yellow-300"
+        disabled={!props.skill.edit}
+        className={`basis-3/4 grow-0 shrink max-w-3/4 px-2 my-2 bg-transparent min-w-0 w-0 ${
+          props.skill.edit && "border-b-2 border-yellow-300"
         }`}
       />
-      <TickButton handleClick={handleClick} completed={LineCompleted} />
-      {LineCompleted && (
+      <TickButton
+        handleClick={props.toggleEdit}
+        completed={!props.skill.edit}
+      />
+      {!props.skill.edit && (
         <DeleteOrEdit
-          Visible={Visible}
+          Visible={EditState}
           deleteElement={props.deleteElement}
-          elementKey={props.skill.key}
+          toggleEdit={props.toggleEdit}
         />
       )}
     </li>

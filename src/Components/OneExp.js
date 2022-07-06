@@ -8,24 +8,21 @@ const OneExp = (props) => {
     e.target.style.height = e.target.scrollHeight + "px";
   }
 
-  const [ExpCompleted, setExpCompleted] = useState(false);
-
-  function handleTickClick() {
-    setExpCompleted(true);
-  }
-
-  const [Visible, setVisible] = useState(false);
+  const [EditState, setEditState] = useState(false);
 
   function showEdit() {
-    setVisible(true);
+    setEditState(true);
   }
   function hideEdit() {
-    setVisible(false);
+    setEditState(false);
   }
 
   return (
     <div
-      onMouseEnter={showEdit}
+      onMouseEnter={() => {
+        showEdit();
+        props.setCurrentExp(props.exp);
+      }}
       onMouseLeave={hideEdit}
       className="basis-full border-b-2 border-yellow-300 flex h-min gap-4 md:gap-8 p-2 animate-dropin origin-center relative"
     >
@@ -38,7 +35,7 @@ const OneExp = (props) => {
             data-key={props.data_key}
             type="number"
             placeholder="from"
-            disabled={ExpCompleted}
+            disabled={!props.exp.edit}
             min={1950}
             max={new Date().getFullYear()}
             className="basis-2/5 bg-gray-300 text-center h-min max-w-[40%] min-w-0 w-0"
@@ -51,7 +48,7 @@ const OneExp = (props) => {
             data-key={props.data_key}
             type="number"
             placeholder="to"
-            disabled={ExpCompleted}
+            disabled={!props.exp.edit}
             min={1950}
             max={new Date().getFullYear()}
             className="basis-2/5 bg-gray-300 text-center h-min max-w-[40%] min-w-0 w-0"
@@ -64,7 +61,7 @@ const OneExp = (props) => {
           data-key={props.data_key}
           type="text"
           placeholder="institution"
-          disabled={ExpCompleted}
+          disabled={!props.exp.edit}
           className="basis-full min-w-0 w-0"
         />
         <input
@@ -74,7 +71,7 @@ const OneExp = (props) => {
           data-key={props.data_key}
           type="text"
           placeholder="city"
-          disabled={ExpCompleted}
+          disabled={!props.exp.edit}
           className="basis-full min-w-0 w-0"
         />
       </div>
@@ -86,25 +83,28 @@ const OneExp = (props) => {
           data-key={props.data_key}
           type="text"
           placeholder="name"
-          disabled={ExpCompleted}
+          disabled={!props.exp.edit}
           className={`basis-3/4 font-bold min-w-0 w-0`}
         />
-        <TickButton handleClick={handleTickClick} completed={ExpCompleted} />
+        <TickButton
+          handleClick={props.toggleEdit}
+          completed={!props.exp.edit}
+        />
         <textarea
           rows={1}
           // onChange={props.handleChange}
           // name="description"
           placeholder="description"
-          disabled={ExpCompleted}
+          disabled={!props.exp.edit}
           className="basis-full h-min mt-2 resize-none min-w-0 w-0"
           onInput={auto_height}
         ></textarea>
       </div>
-      {ExpCompleted && (
+      {!props.exp.edit && (
         <DeleteOrEdit
-          Visible={Visible}
+          Visible={EditState}
           deleteElement={props.deleteElement}
-          elementKey={props.data_key}
+          toggleEdit={props.toggleEdit}
         />
       )}
     </div>

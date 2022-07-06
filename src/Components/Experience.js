@@ -16,10 +16,16 @@ const Experience = (props) => {
           city: "",
           name: "",
           description: "",
+          edit: true,
         },
       ]
   );
 
+  const [currentExp, setCurrentExp] = useState(
+    (Experiences[0] && Experiences[0]) || ""
+  );
+
+  console.log(currentExp);
   function addExpKey() {
     SetExperiences((prevKeys) => [
       ...prevKeys,
@@ -31,22 +37,35 @@ const Experience = (props) => {
         city: "",
         name: "",
         description: "",
+        edit: true,
       },
     ]);
   }
 
-  function handleChange(e) {
+  function handleChange() {
     let updatedData = Experiences.map((exp) => {
-      console.log(exp.key, e.target.dataset.key);
-      if (exp.key === e.target.dataset.key) {
+      if (exp.key === currentExp.key) {
         return {
           ...exp,
-          [e.target.name]: e.target.value,
+          [currentExp.name]: currentExp.value,
         };
       }
       return exp;
     });
     SetExperiences(updatedData);
+  }
+
+  function toggleEdit() {
+    let newData = Experiences.map((exp) => {
+      if (exp.key === currentExp.key) {
+        return {
+          ...exp,
+          edit: !exp.edit,
+        };
+      }
+      return exp;
+    });
+    SetExperiences(newData);
   }
 
   const expElements = Experiences.map((exp) => {
@@ -55,8 +74,10 @@ const Experience = (props) => {
         key={exp.key}
         data_key={exp.key}
         exp={exp}
+        toggleEdit={toggleEdit}
         handleChange={handleChange}
         deleteElement={deleteExpereience}
+        setCurrentExp={setCurrentExp}
       />
     );
   });
@@ -65,16 +86,10 @@ const Experience = (props) => {
     localStorage.setItem(localStorageName, JSON.stringify(Experiences));
   }, [Experiences, localStorageName]);
 
-  function deleteExpereience(e) {
-    const targetKey = e.currentTarget.dataset.key;
-    e.currentTarget.parentNode.parentNode.className += " animate-dropout";
-    e.currentTarget.parentNode.className = " !opacity-0";
-
-    setTimeout(function () {
-      SetExperiences((prevExps) =>
-        prevExps.filter((exp) => exp.key !== targetKey)
-      );
-    }, 100);
+  function deleteExpereience() {
+    SetExperiences((prevExps) =>
+      prevExps.filter((exp) => exp.key !== currentExp.key)
+    );
   }
 
   return (

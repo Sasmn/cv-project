@@ -15,7 +15,7 @@ module.exports = {
       },
       animation: {
         dropin: "dropDown 0.4s ease-out",
-        dropout: "dropOut 0.2s ease-in",
+        dropout: "dropOut 0.9s ease-in",
       },
     },
   },
