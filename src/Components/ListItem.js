@@ -23,7 +23,7 @@ const ListItem = (props) => {
     <li
       onMouseEnter={showEdit}
       onMouseLeave={hideEdit}
-      className={`basis-full flex animate-drop origin-center relative`}
+      className={`basis-full flex animate-dropin origin-center relative`}
     >
       <input
         onChange={props.handleChange}

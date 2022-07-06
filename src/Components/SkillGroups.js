@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import AddButton from "./AddButton";
 import ListItem from "./ListItem";
+import { nanoid } from "nanoid";
 
 const SkillGroups = (props) => {
   const localStorageName = props.name + "Skills";
@@ -8,7 +9,7 @@ const SkillGroups = (props) => {
     () =>
       JSON.parse(localStorage.getItem(localStorageName)) || [
         {
-          key: 0,
+          key: nanoid(),
           value: "",
         },
       ]
@@ -18,15 +19,16 @@ const SkillGroups = (props) => {
     setSkills((prevKeys) => [
       ...prevKeys,
       {
-        key: prevKeys[prevKeys.length - 1].key + 1,
+        key: nanoid(),
         value: "",
       },
     ]);
   }
 
   function handleChange(e) {
+    console.log(e.target, e.currentTarget);
     let updatedData = Skills.map((skill) => {
-      if (skill.key.toString() === e.target.name) {
+      if (skill.key === e.target.name) {
         return {
           ...skill,
           value: e.target.value,
@@ -51,11 +53,17 @@ const SkillGroups = (props) => {
   }, [Skills, localStorageName]);
 
   function deleteListItem(e) {
-    setSkills((prevSkills) =>
-      prevSkills.filter(
-        (skill) => skill.key.toString() !== e.currentTarget.dataset.key
-      )
-    );
+    const targetKey = e.currentTarget.dataset.key;
+    e.currentTarget.parentNode.parentNode.className += " animate-dropout";
+    e.currentTarget.parentNode.className = " !opacity-0";
+    setTimeout(function () {
+      setSkills((prevSkills) =>
+        prevSkills.filter((skill) => {
+          console.log(skill.key, targetKey);
+          return skill.key !== targetKey;
+        })
+      );
+    }, 100);
   }
 
   return (

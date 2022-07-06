@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import AddButton from "./AddButton";
 import OneExp from "./OneExp";
+import { nanoid } from "nanoid";
 
 const Experience = (props) => {
   const localStorageName = props.name.replace(" ", "") + "Data";
@@ -8,7 +9,7 @@ const Experience = (props) => {
     () =>
       JSON.parse(localStorage.getItem(localStorageName)) || [
         {
-          key: 0,
+          key: nanoid(),
           from: "",
           to: "",
           institution: "",
@@ -23,7 +24,7 @@ const Experience = (props) => {
     SetExperiences((prevKeys) => [
       ...prevKeys,
       {
-        key: prevKeys[prevKeys.length - 1].key + 1,
+        key: nanoid(),
         from: "",
         to: "",
         institution: "",
@@ -37,7 +38,7 @@ const Experience = (props) => {
   function handleChange(e) {
     let updatedData = Experiences.map((exp) => {
       console.log(exp.key, e.target.dataset.key);
-      if (exp.key.toString() === e.target.dataset.key) {
+      if (exp.key === e.target.dataset.key) {
         return {
           ...exp,
           [e.target.name]: e.target.value,
@@ -65,11 +66,15 @@ const Experience = (props) => {
   }, [Experiences, localStorageName]);
 
   function deleteExpereience(e) {
-    SetExperiences((prevExps) =>
-      prevExps.filter(
-        (exp) => exp.key.toString() !== e.currentTarget.dataset.key
-      )
-    );
+    const targetKey = e.currentTarget.dataset.key;
+    e.currentTarget.parentNode.parentNode.className += " animate-dropout";
+    e.currentTarget.parentNode.className = " !opacity-0";
+
+    setTimeout(function () {
+      SetExperiences((prevExps) =>
+        prevExps.filter((exp) => exp.key !== targetKey)
+      );
+    }, 100);
   }
 
   return (

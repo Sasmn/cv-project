@@ -3,7 +3,7 @@ import React from "react";
 const DeleteOrEdit = (props) => {
   return (
     <div
-      className={`backdrop-blur-sm absolute top-0 left-0 w-full h-full rounded-md flex justify-center items-center gap-8 md:gap-12 duration-200 origin-top-left ${
+      className={`backdrop-blur-sm absolute top-0 left-0 w-full h-full rounded-md flex justify-center items-center gap-8 md:gap-12 duration-100 origin-center ${
         props.Visible ? "scale-1 opacity-100" : "scale-0 opacity-0"
       }`}
     >
