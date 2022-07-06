@@ -4,7 +4,7 @@ import websiteIcon from "../icons/reshot-icon-personal-website-SHMULA9ZYF.svg";
 import phoneIcon from "../icons/reshot-icon-phone-YUPNL5R2TW.svg";
 import Contact from "./Contact";
 
-function GeneralInfo() {
+function GeneralInfo(props) {
   const [GeneralInfos, setGeneralInfos] = useState(
     () =>
       JSON.parse(localStorage.getItem("GeneralInfo")) || {
@@ -28,7 +28,10 @@ function GeneralInfo() {
 
   return (
     <div className="flex flex-wrap box-border max-w-full m-8 relative">
-      <span className="w-28 h-28 bg-yellow-500 absolute -z-10 rounded-full"></span>
+      <span
+        className="w-28 h-28 absolute -z-10 rounded-full"
+        style={{ backgroundColor: props.color }}
+      ></span>
       <div className="flex-1 basis-full mt-8 ml-8">
         <input
           onChange={handleChange}
@@ -46,23 +49,26 @@ function GeneralInfo() {
         name="position"
         type="text"
         placeholder="position"
-        className="basis-full lg:basis-1/3 grow-1 pl-11 mt-1 font-semibold text-xl h-8 bg-transparent pr-1 rounded-xl focus:outline-none min-w-0 w-0"
+        className="basis-full lg:basis-[30%] grow-1 pl-11 mt-1 font-semibold text-xl h-8 bg-transparent pr-1 rounded-xl focus:outline-none min-w-0 w-0"
       ></input>
-      <ul className="flex flex-1 flex-wrap basis-full lg:basis-2/3 justify-around items-center p-2 border-t-2 border-gray-500 mt-6">
+      <ul className="flex flex-1 flex-wrap basis-full lg:basis-[70%] justify-around items-center p-2 border-t-2 border-gray-500 mt-6">
         <Contact
           name="Phone"
+          color={props.color}
           imageSrc={phoneIcon}
           GeneralInfos={GeneralInfos}
           handleChange={handleChange}
         />
         <Contact
           name="Email"
+          color={props.color}
           imageSrc={emailIcon}
           GeneralInfos={GeneralInfos}
           handleChange={handleChange}
         />
         <Contact
           name="Website"
+          color={props.color}
           imageSrc={websiteIcon}
           GeneralInfos={GeneralInfos}
           handleChange={handleChange}

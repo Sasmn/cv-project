@@ -62,6 +62,7 @@ const SkillGroups = (props) => {
     <ListItem
       key={skill.key}
       skill={skill}
+      color={props.color}
       handleChange={handleChange}
       toggleEdit={toggleEdit}
       deleteElement={deleteListItem}

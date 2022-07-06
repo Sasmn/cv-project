@@ -17,6 +17,9 @@ module.exports = {
         dropin: "dropDown 0.4s ease-out",
         dropout: "dropOut 0.9s ease-in",
       },
+      fontFamily: {
+        kohsan: ["kohsan", "sans-serif"],
+      },
     },
   },
   plugins: [],

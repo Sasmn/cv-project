@@ -93,11 +93,19 @@ const Experience = (props) => {
 
   return (
     <div className="flex m-[2%] w-[96%] lg:m-[5%] lg:w-[90%]">
-      <div className="basis-1/4 shrink-0 h-min flex flex-wrap items-center pl-[1%] lg:pl-[5%]">
-        <h2 className="border-b-2 md:border-b-4 border-gray-800 w-min pb-2 font-bold text-lg">{props.name}</h2>
+      <div className="basis-1/4 lg:basis-[29%] shrink-0 h-min flex flex-wrap items-center pl-[1%] lg:pl-[5%]">
+        <h2
+          className="border-b-2 md:border-b-4 w-min pb-2 font-bold text-lg"
+          style={{ borderColor: props.color }}
+        >
+          {props.name}
+        </h2>
         <AddButton handleClick={addExpKey} />
       </div>
-      <div className="basis-3/4 grow-0 flex flex-wrap gap-3 h-min border-t-4 border-yellow-300 pt-4">
+      <div
+        className="basis-3/4 lg:basis-[71%] grow-0 flex flex-wrap gap-3 h-min border-t-4 pt-4"
+        style={{ borderColor: props.color }}
+      >
         {expElements}
       </div>
     </div>

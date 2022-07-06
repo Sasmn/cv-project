@@ -16,7 +16,8 @@ function Contact(props) {
       <img
         src={props.imageSrc}
         alt="Phone icon"
-        className="m-1 pb-2 border-b-4 border-yellow-500"
+        className="m-1 pb-2 border-b-4"
+        style={{ borderColor: props.color }}
       />
       <div className="flex flex-col">
         <h5 className="font-bold ">{props.name}</h5>
@@ -27,7 +28,8 @@ function Contact(props) {
           name={propName}
           placeholder="here"
           autoComplete="off"
-          className="bg-transparent opacity-80 w-full px-1 text-base border-b-2 border-yellow-500 min-w-0 focus:bg-transparent focus:outline-none"
+          className="bg-transparent opacity-80 w-full px-1 text-base border-b-2 min-w-0 focus:bg-transparent focus:outline-none"
+          style={{ borderColor: props.color }}
         />
       </div>
     </li>
