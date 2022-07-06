@@ -28,7 +28,7 @@ function GeneralInfo() {
 
   return (
     <div className="flex flex-wrap box-border max-w-full m-8 relative">
-      <div className="w-28 h-28 bg-yellow-500 absolute -z-10 rounded-full"></div>
+      <span className="w-28 h-28 bg-yellow-500 absolute -z-10 rounded-full"></span>
       <div className="flex-1 basis-full mt-8 ml-8">
         <input
           onChange={handleChange}
@@ -46,9 +46,9 @@ function GeneralInfo() {
         name="position"
         type="text"
         placeholder="position"
-        className="ml-8 m-r-4 mt-2 font-semibold text-xl w-[23%] h-8 bg-transparent pl-1 pr-1 rounded-xl focus:outline-none"
+        className="basis-full lg:basis-1/3 grow-1 pl-11 mt-1 font-semibold text-xl h-8 bg-transparent pr-1 rounded-xl focus:outline-none min-w-0 w-0"
       ></input>
-      <ul className="flex flex-1 flex-wrap basis-full md:basis-0 justify-around items-center p-2 border-t-2 border-gray-500 mt-6">
+      <ul className="flex flex-1 flex-wrap basis-full lg:basis-2/3 justify-around items-center p-2 border-t-2 border-gray-500 mt-6">
         <Contact
           name="Phone"
           imageSrc={phoneIcon}

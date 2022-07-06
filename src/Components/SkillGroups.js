@@ -85,7 +85,7 @@ const SkillGroups = (props) => {
         {props.name}
       </h6>
       <AddButton handleClick={addSkillItem} />
-      <ul className="basis-full grow-0 flex flex-wrap rounded-md overflow-hidden">
+      <ul className="basis-full grow-0 flex flex-wrap gap-0.5">
         {skillItems}
       </ul>
     </div>

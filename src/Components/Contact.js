@@ -27,7 +27,7 @@ function Contact(props) {
           name={propName}
           placeholder="here"
           autoComplete="off"
-          className="bg-transparent opacity-80 w-full pl-1 pr-1 text-base border-b-2 border-yellow-500 min-w-0 focus:bg-transparent focus:outline-none"
+          className="bg-transparent opacity-80 w-full px-1 text-base border-b-2 border-yellow-500 min-w-0 focus:bg-transparent focus:outline-none"
         />
       </div>
     </li>
