@@ -20,7 +20,14 @@ const ListItem = (props) => {
         props.setCurrentSkillItem(props.skill);
       }}
       onMouseLeave={hideEdit}
-      className={`basis-full flex animate-dropin origin-center relative`}
+      onTouchStart={() => {
+        showEdit();
+        props.setCurrentSkillItem(props.skill);
+      }}
+      onTouchEnd={hideEdit}
+      className={`basis-full flex animate-dropin origin-center relative ${
+        !props.skill.edit && "bg-gray-100"
+      }`}
     >
       <input
         onChange={props.handleChange}
@@ -28,9 +35,7 @@ const ListItem = (props) => {
         value={props.skill.value}
         type="text"
         disabled={!props.skill.edit}
-        className={`basis-3/4 grow-0 shrink max-w-3/4 px-2 my-2 bg-transparent min-w-0 w-0 ${
-          props.skill.edit && "border-b-2 border-yellow-300"
-        }`}
+        className={`basis-3/4 grow-0 shrink max-w-3/4 px-2 my-2 bg-transparent min-w-0 w-0 border-b-2 border-yellow-300`}
       />
       <TickButton
         handleClick={props.toggleEdit}

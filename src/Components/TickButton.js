@@ -3,7 +3,9 @@ import React from "react";
 const TickButton = (props) => {
   return (
     <div
-      onClick={props.handleClick}
+      onClick={() => {
+        props.handleClick();
+      }}
       className={`shrink-0 basis-1/4 flex justify-center cursor-pointer duration-200 ${
         props.completed && "opacity-0"
       }`}

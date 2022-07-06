@@ -24,6 +24,11 @@ const OneExp = (props) => {
         props.setCurrentExp(props.exp);
       }}
       onMouseLeave={hideEdit}
+      onTouchStart={() => {
+        showEdit();
+        props.setCurrentExp(props.exp);
+      }}
+      onTouchEnd={hideEdit}
       className="basis-full border-b-2 border-yellow-300 flex h-min gap-4 md:gap-8 p-2 animate-dropin origin-center relative"
     >
       <div className="basis-2/6 md:basis-1/4 h-min flex flex-wrap">
