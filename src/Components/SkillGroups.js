@@ -38,12 +38,25 @@ const SkillGroups = (props) => {
   }
 
   const skillItems = Skills.map((skill) => (
-    <ListItem key={skill.key} skill={skill} handleChange={handleChange} />
+    <ListItem
+      key={skill.key}
+      skill={skill}
+      handleChange={handleChange}
+      deleteElement={deleteListItem}
+    />
   ));
 
   useEffect(() => {
     localStorage.setItem(localStorageName, JSON.stringify(Skills));
   }, [Skills, localStorageName]);
+
+  function deleteListItem(e) {
+    setSkills((prevSkills) =>
+      prevSkills.filter(
+        (skill) => skill.key.toString() !== e.currentTarget.dataset.key
+      )
+    );
+  }
 
   return (
     <div className="basis-1/2 grow-0 flex flex-wrap items-start h-min">

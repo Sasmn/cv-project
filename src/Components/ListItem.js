@@ -36,7 +36,13 @@ const ListItem = (props) => {
         }`}
       />
       <TickButton handleClick={handleClick} completed={LineCompleted} />
-      {LineCompleted && <DeleteOrEdit Visible={Visible} />}
+      {LineCompleted && (
+        <DeleteOrEdit
+          Visible={Visible}
+          deleteElement={props.deleteElement}
+          elementKey={props.skill.key}
+        />
+      )}
     </li>
   );
 };

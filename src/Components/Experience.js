@@ -55,6 +55,7 @@ const Experience = (props) => {
         data_key={exp.key}
         exp={exp}
         handleChange={handleChange}
+        deleteElement={deleteExpereience}
       />
     );
   });
@@ -62,6 +63,14 @@ const Experience = (props) => {
   useEffect(() => {
     localStorage.setItem(localStorageName, JSON.stringify(Experiences));
   }, [Experiences, localStorageName]);
+
+  function deleteExpereience(e) {
+    SetExperiences((prevExps) =>
+      prevExps.filter(
+        (exp) => exp.key.toString() !== e.currentTarget.dataset.key
+      )
+    );
+  }
 
   return (
     <div className="flex m-[2%] w-[96%] h-min">

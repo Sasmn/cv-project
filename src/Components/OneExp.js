@@ -100,7 +100,13 @@ const OneExp = (props) => {
           onInput={auto_height}
         ></textarea>
       </div>
-      {ExpCompleted && <DeleteOrEdit Visible={Visible} />}
+      {ExpCompleted && (
+        <DeleteOrEdit
+          Visible={Visible}
+          deleteElement={props.deleteElement}
+          elementKey={props.data_key}
+        />
+      )}
     </div>
   );
 };
