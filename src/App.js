@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import Main from "./Components/Main";
 import { useReactToPrint } from "react-to-print";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 function App() {
   const [colorTheme, setColorTheme] = useState(
@@ -16,6 +18,7 @@ function App() {
   }, [colorTheme]);
 
   const componentRef = useRef();
+
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
     documentTitle: "my cv",
@@ -35,16 +38,70 @@ function App() {
         .no-print {
           display: none;
         }
-        .main {
-          box-shadow: none !important;
+        .mediumSizedFont {
+          font-size: 30px;
         }
+        
       }
-      html{
-        font-size: 16px;
-      }
-    `,
+      `,
     copyStyles: true,
   });
+
+  const printRef = useRef();
+  // const handleDownloadPdf = async () => {
+  //   const element = printRef.current;
+  //   const canvas = await html2canvas(element);
+  //   const data = canvas.toDataURL("image/png");
+
+  //   const pdf = new jsPDF();
+  //   const imgProperties = pdf.getImageProperties(data);
+  //   const pdfWidth = pdf.internal.pageSize.getWidth();
+  //   const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
+  //   pdf.addImage(data, "PNG", 0, 0, pdfWidth, pdfHeight);
+  //   pdf.save("print.pdf");
+  // };
+
+  // function handleDownloadPdf() {
+  //   const input = printRef.current;
+  //   html2canvas(input).then((canvas) => {
+  //     const imgData = canvas.toDataURL("image/png");
+  //     const pdf = new jsPDF();
+  //     pdf.addImage(imgData, "JPEG", 0, 0);
+  //     pdf.save('print.pdf')
+  //   });
+  // }
+
+  // const handleDownloadPdf = async () => {
+  //   const element = printRef.current;
+  //   const canvas = await html2canvas(element);
+  //   const data = canvas.toDataURL("image/png");
+  //   const link = document.createElement("a");
+
+  //   if (typeof link.download === "string") {
+  //     link.href = data;
+  //     link.download = "image.jpg";
+
+  //     document.body.appendChild(link);
+  //     link.click();
+  //     document.body.removeChild(link);
+  //   } else {
+  //     window.open(data);
+  //   }
+  // };
+
+  // function handleDownloadPdf() {
+  //   const input = printRef.current;
+  //   html2canvas(input, {
+  //     allowTaint: false,
+  //   }).then((canvas) => {
+  //     canvas.style.display = "none";
+  //     const imgData = canvas.toDataURL("image/png");
+  //     var a = document.createElement("a");
+  //     a.setAttribute("download", "myImage.png");
+  //     a.setAttribute("href", imgData);
+  //     a.click();
+  //   });
+  // }
 
   return (
     <div className="text-[10px] md:text-sm lg:text-base xl:text-lg w-full xl:w-11/12 2xl:w-4/5 ml-auto mr-auto font-kohsan tracking-wider">

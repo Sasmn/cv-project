@@ -97,7 +97,7 @@ const OneExp = (props) => {
       </div>
       <div className="basis-4/6 md:basis-3/4 h-min flex flex-wrap relative">
         <span
-          className="w-fit h-3.5 absolute top-2.5 lg:top-3 left-3 -z-10 rounded-lg"
+          className="w-fit h-2 lg:h-3.5 absolute top-2 sm:top-3 left-2 lg:left-3 -z-10 rounded-lg"
           style={{ backgroundColor: props.color }}
         >
           <span className="opacity-0">{props.exp.name}</span>
