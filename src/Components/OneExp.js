@@ -29,40 +29,49 @@ const OneExp = (props) => {
         props.setCurrentExp(props.exp);
       }}
       // onTouchEnd={hideEdit}
-      className={`basis-full rounded-2xl mb-2 flex h-min gap-4 md:gap-8 p-2 animate-dropin origin-center relative ${
+      className={`basis-full rounded-2xl flex h-min gap-4 md:gap-8 p-2 animate-dropin origin-center relative ${
         props.exp.edit && "bg-gray-100"
       }`}
     >
       <div className={`basis-2/6 md:basis-1/4 h-min flex flex-wrap`}>
-        <div className="basis-full flex font-bold">
-          <input
-            onChange={props.handleChange}
-            name="from"
-            value={props.exp.from}
-            type="number"
-            placeholder="from"
-            disabled={!props.exp.edit}
-            min={1950}
-            max={new Date().getFullYear()}
-            className={`basis-2/5 border-b-2 bg-transparent text-center h-min max-w-[40%] min-w-0 w-0 px-1 focus:outline-none ${
-              !props.exp.edit && "border-none"
-            }`}
-          />
-          <span className="basis-1/5 h-min text-center"> - </span>
-          <input
-            onChange={props.handleChange}
-            name="to"
-            value={props.exp.to}
-            type="number"
-            placeholder="to"
-            disabled={!props.exp.edit}
-            min={1950}
-            max={new Date().getFullYear()}
-            className={`basis-2/5 border-b-2 bg-transparent text-center h-min max-w-[40%] min-w-0 w-0 px-1 focus:outline-none ${
-              !props.exp.edit && "border-none"
-            }`}
-          />
-        </div>
+        {props.exp.edit && (
+          <div className="basis-full flex font-bold">
+            <input
+              onChange={props.handleChange}
+              name="from"
+              value={props.exp.from}
+              type="number"
+              placeholder="from"
+              disabled={!props.exp.edit}
+              min={1950}
+              max={new Date().getFullYear()}
+              className={`${
+                props.exp.edit ? "basis-2/5" : "basis-[min-content] max-w-min"
+              } border-b-2 bg-transparent text-center h-min min-w-0 w-0 px-1 focus:outline-none ${
+                !props.exp.edit && "border-none"
+              }`}
+            />
+            <span className="basis-1/5 h-min text-center"> - </span>
+            <input
+              onChange={props.handleChange}
+              name="to"
+              value={props.exp.to}
+              type="number"
+              placeholder="to"
+              disabled={!props.exp.edit}
+              min={1950}
+              max={new Date().getFullYear()}
+              className={`basis-2/5 border-b-2 bg-transparent text-center h-min max-w-[40%] min-w-0 w-0 px-1 focus:outline-none ${
+                !props.exp.edit && "border-none"
+              }`}
+            />
+          </div>
+        )}
+        {!props.exp.edit && (
+          <p className="px-1 font-bold">
+            {props.exp.from}-{props.exp.to}
+          </p>
+        )}
         <input
           onChange={props.handleChange}
           name="institution"
@@ -70,7 +79,7 @@ const OneExp = (props) => {
           type="text"
           placeholder="institution"
           disabled={!props.exp.edit}
-          className={`basis-full min-w-0 w-0 border-b-2 bg-transparent px-1 focus:outline-none ${
+          className={`basis-full min-w-0 w-0 border-b-2 bg-transparent px-1 text-gray-600 focus:outline-none ${
             !props.exp.edit && "border-none"
           }`}
         />
@@ -81,7 +90,7 @@ const OneExp = (props) => {
           type="text"
           placeholder="city"
           disabled={!props.exp.edit}
-          className={`basis-full min-w-0 w-0 border-b-2 bg-transparent px-1 focus:outline-none ${
+          className={`basis-full min-w-0 w-0 border-b-2 bg-transparent px-1 text-gray-600 focus:outline-none ${
             !props.exp.edit && "border-none"
           }`}
         />
@@ -117,7 +126,7 @@ const OneExp = (props) => {
           value={props.exp.description}
           placeholder="description"
           disabled={!props.exp.edit}
-          className={`basis-full h-min mt-2 resize-none min-w-0 w-0 border-b-2 bg-transparent px-1 focus:outline-none ${
+          className={`basis-full h-min mt-2 resize-none min-w-0 w-0 border-b-2 bg-transparent px-1 text-gray-600 focus:outline-none ${
             !props.exp.edit && "border-none"
           }`}
           onInput={auto_height}

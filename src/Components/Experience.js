@@ -104,7 +104,7 @@ const Experience = (props) => {
         <AddButton handleClick={addExpKey} />
       </div>
       <div
-        className="basis-3/4 lg:basis-[71%] grow-0 flex flex-wrap gap-3 h-min border-t-4 pt-4"
+        className="basis-3/4 lg:basis-[71%] grow-0 flex flex-wrap gap-1 h-min border-t-4 pt-4"
         style={{ borderColor: props.color }}
       >
         {expElements}
