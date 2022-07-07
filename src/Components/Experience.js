@@ -73,6 +73,7 @@ const Experience = (props) => {
       <OneExp
         key={exp.key}
         exp={exp}
+        color={props.color}
         setCurrentExp={setCurrentExp}
         toggleEdit={toggleEdit}
         handleChange={handleChange}

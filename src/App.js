@@ -17,11 +17,17 @@ function App() {
   }, [colorTheme]);
 
   return (
-    <div className="w-full lg:w-11/12 xl:w-5/6 2xl:w-2/3 ml-auto mr-auto font-kohsan tracking-wider">
+    <div className="w-full xl:w-11/12 2xl:w-4/5 ml-auto mr-auto font-kohsan tracking-wider">
       <header className="flex justify-between items-center p-7">
         <div className="flex items-center gap-4">
-          <h3>choose a color:</h3>
-          <div className="w-14 h-14 rounded-full relative overflow-hidden">
+          <h3 className="text-lg font-bold relative">
+            <span
+              className="w-full h-[45%] absolute bottom-[5%] lg:bottom-[2%] left-[3%] -z-10 rounded-lg"
+              style={{ backgroundColor: colorTheme }}
+            ></span>
+            choose a color:
+          </h3>
+          <div className="w-14 h-14 rounded-full relative overflow-hidden hover:scale-125 duration-300">
             <input
               type="color"
               value={colorTheme}

@@ -36,9 +36,9 @@ const ListItem = (props) => {
         type="text"
         disabled={!props.skill.edit}
         className={`basis-3/4 grow-0 shrink max-w-3/4 px-2 my-2 bg-transparent min-w-0 w-0 focus:outline-none ${
-          !props.skill.edit && "border-b-2"
+          !props.skill.edit && "underline decoration-2 underline-offset-4"
         }`}
-        style={{ borderColor: props.color }}
+        style={{ textDecorationColor: props.color }}
       />
       <TickButton
         handleClick={props.toggleEdit}

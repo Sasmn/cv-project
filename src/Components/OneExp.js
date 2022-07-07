@@ -86,10 +86,17 @@ const OneExp = (props) => {
           }`}
         />
       </div>
-      <div className="basis-4/6 md:basis-3/4 h-min flex flex-wrap">
+      <div className="basis-4/6 md:basis-3/4 h-min flex flex-wrap relative">
+        <span
+          className="w-fit h-3.5 absolute top-2.5 lg:top-3 left-3 -z-10 rounded-lg"
+          style={{ backgroundColor: props.color }}
+        >
+          <span className="opacity-0">{props.exp.name}</span>
+        </span>
         <input
           onChange={props.handleChange}
           name="name"
+          id="name"
           value={props.exp.name}
           type="text"
           placeholder="name"
@@ -98,6 +105,7 @@ const OneExp = (props) => {
             !props.exp.edit && "border-none"
           }`}
         />
+
         <TickButton
           handleClick={props.toggleEdit}
           completed={!props.exp.edit}

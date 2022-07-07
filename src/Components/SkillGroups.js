@@ -82,13 +82,17 @@ const SkillGroups = (props) => {
 
   return (
     <div className="basis-1/2 m-1 grow-0 flex flex-wrap items-start h-min">
-      <h6 className="basis-3/4 grow-0 shrink-1 text-lg font-bold h-8 overflow-hidden">
+      <h6 className="basis-3/4 grow-0 shrink-1 text-lg font-bold h-8 relative flex items-center overflow-hidden mb-3">
+        <span
+          className="w-min h-[45%] absolute bottom-[10%] lg:bottom-0 left-[3%] -z-10 rounded-lg"
+          style={{ backgroundColor: props.color }}
+        >
+          <span className="opacity-0">{props.name}</span>
+        </span>
         {props.name}
       </h6>
       <AddButton handleClick={addSkillItem} />
-      <ul className="basis-full grow-0 flex flex-wrap gap-0.5">
-        {skillItems}
-      </ul>
+      <ul className="basis-full grow-0 flex flex-wrap gap-0.5">{skillItems}</ul>
     </div>
   );
 };
