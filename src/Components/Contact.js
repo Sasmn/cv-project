@@ -12,15 +12,15 @@ function Contact(props) {
   const propName = props.name.toLowerCase();
 
   return (
-    <li className="shrink-0 basis-1/2 sm:basis-1/3 flex h-12 mt-2">
+    <li className="shrink-0 grow-0 basis-1/3 flex gap-1 items-center h-min mt-2 overflow-hidden">
       <img
         src={props.imageSrc}
         alt="Phone icon"
-        className="m-1 pb-2 border-b-4"
+        className="basis-4 md:basis-5 lg:basis-6 xl:basis-7 shrink-0 grow-0 overflow-hidden pb-1 border-b-4"
         style={{ borderColor: props.color }}
       />
-      <div className="flex flex-col">
-        <h5 className="font-bold ">{props.name}</h5>
+      <div className="basis-full grow-0 shrink-1 flex flex-wrap overflow-hidden">
+        <h5 className="basis-full font-bold mediumSizedFont">{props.name}</h5>
         <input
           type={inputType}
           onChange={props.handleChange}
@@ -28,8 +28,7 @@ function Contact(props) {
           name={propName}
           placeholder="here"
           autoComplete="off"
-          className="bg-transparent opacity-80 w-full px-1 text-base border-b-2 min-w-0 focus:bg-transparent focus:outline-none"
-          style={{ borderColor: props.color }}
+          className="basis-full shrink-1 bg-transparent opacity-80 focus:border-b-2 border-gray-700 min-w-0 focus:bg-transparent focus:outline-none"
         />
       </div>
     </li>

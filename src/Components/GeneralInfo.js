@@ -27,12 +27,12 @@ function GeneralInfo(props) {
   }, [GeneralInfos]);
 
   return (
-    <div className="flex flex-wrap box-border max-w-full m-8 relative">
+    <div className="flex flex-wrap overflow-hidden max-w-full p-2 md:p-4 lg:p-8 relative">
       <span
-        className="w-28 h-28 absolute -z-10 rounded-full"
+        className="w-16 h-16 sm:w-20 sm:h-20 lg:w-28 lg:h-28 absolute -z-10 rounded-full"
         style={{ backgroundColor: props.color }}
       ></span>
-      <div className="flex-1 basis-full mt-8 ml-8">
+      <div className="flex-1 basis-full mt-3 lg:mt-8 overflow-hidden">
         <input
           onChange={handleChange}
           value={GeneralInfos.name}
@@ -40,7 +40,7 @@ function GeneralInfo(props) {
           type="text"
           placeholder="name"
           autoComplete="off"
-          className="text-5xl font-bold bg-transparent w-full max-w-full h-14 pl-2 pr-2 rounded-2xl min-w-0 focus:outline-none"
+          className="pl-1 lg:pl-5 text-3xl md:text-4xl lg:text-5xl font-bold bg-transparent w-full overflow-hidden min-w-0 focus:outline-none"
         />
       </div>
       <input
@@ -49,9 +49,11 @@ function GeneralInfo(props) {
         name="position"
         type="text"
         placeholder="position"
-        className="basis-full lg:basis-[30%] grow-1 pl-11 mt-1 font-semibold text-xl h-8 bg-transparent pr-1 rounded-xl focus:outline-none min-w-0 w-0"
+        className={`basis-full lg:basis-[28%] grow-0 shrink-0 pl-2 lg:pl-6 mt-1 font-semibold mediumSizedFont h-min bg-transparent focus:outline-none min-w-0 w-0`}
       ></input>
-      <ul className="flex flex-1 flex-wrap basis-full lg:basis-[70%] justify-around items-center p-2 border-t-2 border-gray-500 mt-6">
+      <ul
+        className={`flex flex-1 flex-wrap basis-full lg:basis-[72%] grow-0 shrink-0 justify-around items-center border-t-2 border-gray-500 mt-4 lg:mt-2`}
+      >
         <Contact
           name="Phone"
           color={props.color}

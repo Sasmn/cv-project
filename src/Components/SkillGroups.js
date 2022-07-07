@@ -20,7 +20,6 @@ const SkillGroups = (props) => {
     (Skills[0] && Skills[0]) || ""
   );
 
-  console.log(CurrentSkillItem);
   function addSkillItem() {
     setSkills((prevKeys) => [
       ...prevKeys,
@@ -81,8 +80,8 @@ const SkillGroups = (props) => {
   }
 
   return (
-    <div className="basis-1/2 m-1 grow-0 flex flex-wrap items-start h-min">
-      <h6 className="basis-3/4 grow-0 shrink-1 text-lg font-bold h-8 relative flex items-center overflow-hidden mb-3">
+    <div className="basis-1/2 m-1 grow-0 flex flex-wrap justify-between h-min">
+      <h6 className="basis-3/4 grow-0 shrink-1 mediumSizedFont font-bold h-8 relative flex items-center overflow-hidden mb-3">
         <span
           className="w-min h-[45%] absolute bottom-[10%] lg:bottom-0 left-[3%] -z-10 rounded-lg"
           style={{ backgroundColor: props.color }}

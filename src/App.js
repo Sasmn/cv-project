@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
-import GeneralInfo from "./Components/GeneralInfo";
-import Skills from "./Components/Skills";
-import Experience from "./Components/Experience";
+import React, { useState, useEffect, useRef } from "react";
+import Main from "./Components/Main";
+import { useReactToPrint } from "react-to-print";
 
 function App() {
   const [colorTheme, setColorTheme] = useState(
@@ -16,18 +15,49 @@ function App() {
     localStorage.setItem("themeColor", JSON.stringify(colorTheme));
   }, [colorTheme]);
 
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    documentTitle: "my cv",
+    pageStyle: `
+      @page {
+        size: auto;
+        margin: 0;
+      }
+      @media print {
+        html, body {
+          // font-size: 30px;
+          height: initial !important;
+          overflow: initial !important;
+          // width: 1050px;
+          -webkit-print-color-adjust: exact;
+        }
+        .no-print {
+          display: none;
+        }
+        .main {
+          box-shadow: none !important;
+        }
+      }
+      html{
+        font-size: 16px;
+      }
+    `,
+    copyStyles: true,
+  });
+
   return (
-    <div className="w-full xl:w-11/12 2xl:w-4/5 ml-auto mr-auto font-kohsan tracking-wider">
+    <div className="text-[10px] md:text-sm lg:text-base xl:text-lg w-full xl:w-11/12 2xl:w-4/5 ml-auto mr-auto font-kohsan tracking-wider">
       <header className="flex justify-between items-center p-7">
         <div className="flex items-center gap-4">
-          <h3 className="text-lg font-bold relative">
+          <h3 className="mediumSizedFont font-bold relative">
             <span
               className="w-full h-[45%] absolute bottom-[5%] lg:bottom-[2%] left-[3%] -z-10 rounded-lg"
               style={{ backgroundColor: colorTheme }}
             ></span>
             choose a color:
           </h3>
-          <div className="w-14 h-14 rounded-full relative overflow-hidden hover:scale-125 duration-300">
+          <div className="w-8 h-8 md:w-14 md:h-14 rounded-full relative overflow-hidden hover:scale-125 duration-300">
             <input
               type="color"
               value={colorTheme}
@@ -36,14 +66,11 @@ function App() {
             />
           </div>
         </div>
-        <h4>download CV</h4>
+        <button onClick={handlePrint} className="mediumSizedFont">
+          print CV
+        </button>
       </header>
-      <main className=" shadow-2xl pt-5 pb-5">
-        <GeneralInfo color={colorTheme} />
-        <Skills color={colorTheme} />
-        <Experience name="Work Experience" color={colorTheme} />
-        <Experience name="Education" color={colorTheme} />
-      </main>
+      <Main color={colorTheme} ref={componentRef} />
     </div>
   );
 }

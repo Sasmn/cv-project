@@ -93,10 +93,10 @@ const Experience = (props) => {
   }
 
   return (
-    <div className="flex m-[2%] w-[96%] lg:m-[5%] lg:w-[90%]">
-      <div className="basis-1/4 lg:basis-[29%] shrink-0 h-min flex flex-wrap items-center pl-[1%] lg:pl-[5%]">
+    <div className="flex max-w-full box-border p-2 md:p-4 lg:p-8">
+      <div className="basis-1/4 lg:basis-[29%] grow-0 shrink-0 h-min flex gap-1 flex-wrap items-center lg:pl-10 overflow-hidden">
         <h2
-          className="border-b-2 md:border-b-4 w-min pb-2 font-bold text-lg"
+          className="border-b-2 md:border-b-4 w-min pb-2 font-bold mediumSizedFont"
           style={{ borderColor: props.color }}
         >
           {props.name}
@@ -104,7 +104,7 @@ const Experience = (props) => {
         <AddButton handleClick={addExpKey} />
       </div>
       <div
-        className="basis-3/4 lg:basis-[71%] grow-0 flex flex-wrap gap-1 h-min border-t-4 pt-4"
+        className="basis-3/4 lg:basis-[71%] grow-0 shrink-0 flex flex-wrap gap-1 h-min border-t-4 pt-4"
         style={{ borderColor: props.color }}
       >
         {expElements}
