@@ -23,7 +23,7 @@ function App() {
     pageStyle: `
       @page {
         size: auto;
-        margin: 5mm 10mm;
+        margin: 0;
       }
       @media print {
         html, body {
@@ -33,6 +33,9 @@ function App() {
         }
         .no-print {
           display: none;
+        }
+        main{
+          height: 100vh;
         }
       }
       `,
