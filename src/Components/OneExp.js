@@ -24,16 +24,16 @@ const OneExp = (props) => {
         props.setCurrentExp(props.exp);
       }}
       onMouseLeave={hideEdit}
-      onTouchStart={() => {
-        showEdit();
-        props.setCurrentExp(props.exp);
-      }}
+      // onTouchStart={() => {
+      //   showEdit();
+      //   props.setCurrentExp(props.exp);
+      // }}
       // onTouchEnd={hideEdit}
-      className={`basis-full rounded-2xl flex h-min gap-4 md:gap-8 p-2 animate-dropin origin-center relative ${
+      className={`basis-full rounded-2xl flex h-min md:gap-8 p-2 animate-dropin origin-center relative overflow-hidden ${
         props.exp.edit && "bg-gray-100"
       }`}
     >
-      <div className={`basis-2/6 md:basis-1/4 h-min flex flex-wrap`}>
+      <div className={`basis-2/6 md:basis-1/4 grow-0 shrink-0 h-min flex flex-wrap`}>
         {props.exp.edit ? (
           <div className="basis-full flex font-bold">
             <input
@@ -94,7 +94,7 @@ const OneExp = (props) => {
           }`}
         />
       </div>
-      <div className="basis-4/6 md:basis-3/4 h-min flex flex-wrap relative">
+      <div className="basis-4/6 md:basis-3/4 pl-2 grow-0 shrink-0 h-min flex flex-wrap relative overflow-hidden">
         <span
           className="w-fit h-2.5 lg:h-3.5 absolute top-2 sm:top-3 print:top-3 left-2 lg:left-3 print:left-2 -z-10 rounded-lg print:text-lg"
           style={{ backgroundColor: props.color }}
@@ -132,7 +132,7 @@ const OneExp = (props) => {
             onInput={auto_height}
           />
         ) : (
-          <p className="basis-full h-min mt-2 print:mt-0 px-1 text-gray-600 print:text-sm">
+          <p className="basis-full max-w-full h-min mt-2 print:mt-0 px-1 text-gray-600 print:text-sm">
             {props.exp.description}
           </p>
         )}

@@ -12,7 +12,7 @@ function Contact(props) {
   const propName = props.name.toLowerCase();
 
   return (
-    <li className="shrink-0 grow-0 basis-1/3 flex gap-1 items-center h-min mt-2 overflow-hidden print:h-12">
+    <li className="shrink-0 grow-0 basis-full sm:basis-1/3 flex gap-1 items-center h-min mt-2 overflow-hidden print:h-12">
       <img
         src={props.imageSrc}
         alt="Phone icon"

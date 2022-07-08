@@ -13,7 +13,7 @@ const Main = React.forwardRef((props, ref) => {
       <Skills color={props.color} />
       <Experience name="Work Experience" color={props.color} />
       <Experience name="Education" color={props.color} />
-      <div className="bg-gradient-to-r from-stone-200 to-stone-50 bg-[length:5px_5px] absolute top-0 left-0 w-full h-full -z-20"></div>
+      <div className="bg-gradient-to-r from-stone-200/40 to-stone-50 bg-[length:5px_5px] absolute top-0 left-0 w-full h-full -z-20"></div>
     </main>
   );
 });

@@ -20,10 +20,10 @@ const ListItem = (props) => {
         props.setCurrentSkillItem(props.skill);
       }}
       onMouseLeave={hideEdit}
-      onTouchStart={() => {
-        showEdit();
-        props.setCurrentSkillItem(props.skill);
-      }}
+      // onTouchStart={() => {
+      //   showEdit();
+      //   props.setCurrentSkillItem(props.skill);
+      // }}
       // onTouchEnd={hideEdit}
       className={`basis-full flex rounded-lg animate-dropin origin-center relative ${
         props.skill.edit && "bg-gray-100"
