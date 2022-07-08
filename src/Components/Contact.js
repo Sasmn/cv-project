@@ -16,8 +16,8 @@ function Contact(props) {
       <img
         src={props.imageSrc}
         alt="Phone icon"
-        className="print:basis-5 basis-4 md:basis-5 lg:basis-6 xl:basis-7 shrink-0 grow-0 h-8 overflow-hidden pb-1 border-b-4"
-        style={{ borderColor: props.color }}
+        className="print:basis-5 basis-4 md:basis-5 lg:basis-6 xl:basis-7 shrink-0 grow-0 h-8 overflow-hidden pb-1 border-b-2 border-gray-500"
+        // style={{ borderColor: props.color }}
       />
       <div className="basis-full grow-0 shrink-1 flex h-min flex-wrap overflow-hidden">
         <h5 className="basis-full font-bold h-min mediumSizedFont print:text-lg">

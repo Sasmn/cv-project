@@ -5,7 +5,7 @@ import Experience from "./Experience";
 
 const Main = React.forwardRef((props, ref) => {
   return (
-    <main ref={ref} className=".main shadow-2xl pt-5 pb-5">
+    <main ref={ref} className=".main shadow-2xl print:shadow-none pt-5 pb-5">
       <GeneralInfo color={props.color} />
       <Skills color={props.color} />
       <Experience name="Work Experience" color={props.color} />

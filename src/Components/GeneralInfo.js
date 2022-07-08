@@ -40,7 +40,7 @@ function GeneralInfo(props) {
           type="text"
           placeholder="name"
           autoComplete="off"
-          className="pl-1 lg:pl-5 text-3xl md:text-4xl lg:text-6xl print:text-6xl font-bold bg-transparent w-full overflow-hidden min-w-0 focus:outline-none"
+          className="pl-1 lg:pl-5 print:pl-5 text-3xl md:text-4xl lg:text-6xl print:text-6xl font-bold bg-transparent w-full overflow-hidden min-w-0 focus:outline-none"
         />
       </div>
       <input
@@ -49,7 +49,7 @@ function GeneralInfo(props) {
         name="position"
         type="text"
         placeholder="position"
-        className={`basis-full lg:basis-[28%] print:basis-[28%] grow-0 shrink-0 pl-2 lg:pl-6 mt-1 font-semibold mediumSizedFont print:text-lg h-min bg-transparent focus:outline-none min-w-0 w-0`}
+        className={`basis-full lg:basis-[28%] print:basis-[28%] grow-0 shrink-0 pl-2 lg:pl-6 print:pl-6 mt-1 print:mt-0 text-gray-600 font-semibold mediumSizedFont print:text-base h-min bg-transparent focus:outline-none min-w-0 w-0`}
       ></input>
       <ul
         className={`flex flex-1 flex-wrap basis-full lg:basis-[72%] print:basis-[72%] grow-0 shrink-0 justify-around items-center border-t-2 border-gray-500 mt-4 lg:mt-2`}

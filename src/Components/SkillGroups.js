@@ -81,7 +81,7 @@ const SkillGroups = (props) => {
 
   return (
     <div className="basis-1/2 m-1 grow-0 flex flex-wrap justify-between h-min">
-      <h6 className="basis-3/4 grow-0 shrink-1 mediumSizedFont print:text-lg font-bold h-8 relative flex items-center overflow-hidden mb-3">
+      <h6 className="basis-3/4 grow-0 shrink-1 mediumSizedFont print:text-lg font-bold h-min relative flex items-center overflow-hidden mb-1">
         <span
           className="w-min h-[45%] absolute bottom-[10%] lg:bottom-0 left-[3%] -z-10 rounded-lg"
           style={{ backgroundColor: props.color }}

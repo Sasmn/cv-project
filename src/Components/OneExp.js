@@ -34,7 +34,7 @@ const OneExp = (props) => {
       }`}
     >
       <div className={`basis-2/6 md:basis-1/4 h-min flex flex-wrap`}>
-        {props.exp.edit && (
+        {props.exp.edit ? (
           <div className="basis-full flex font-bold">
             <input
               onChange={props.handleChange}
@@ -66,9 +66,8 @@ const OneExp = (props) => {
               }`}
             />
           </div>
-        )}
-        {!props.exp.edit && (
-          <p className="px-1 font-bold print:text-base">
+        ) : (
+          <p className="px-1 font-bold print:text-sm">
             {props.exp.from}-{props.exp.to}
           </p>
         )}
@@ -79,7 +78,7 @@ const OneExp = (props) => {
           type="text"
           placeholder="institution"
           disabled={!props.exp.edit}
-          className={`basis-full min-w-0 w-0 border-b-2 bg-transparent px-1 text-gray-600 focus:outline-none ${
+          className={`basis-full min-w-0 w-0 border-b-2 bg-transparent px-1 text-gray-600 print:text-sm focus:outline-none ${
             !props.exp.edit && "border-none"
           }`}
         />
@@ -90,14 +89,14 @@ const OneExp = (props) => {
           type="text"
           placeholder="city"
           disabled={!props.exp.edit}
-          className={`basis-full min-w-0 w-0 border-b-2 bg-transparent px-1 text-gray-600 focus:outline-none ${
+          className={`basis-full min-w-0 w-0 border-b-2 bg-transparent px-1 text-gray-600 print:text-sm focus:outline-none ${
             !props.exp.edit && "border-none"
           }`}
         />
       </div>
       <div className="basis-4/6 md:basis-3/4 h-min flex flex-wrap relative">
         <span
-          className="w-fit h-2 lg:h-3.5 absolute top-2 sm:top-3 print:top-4 left-2 lg:left-3 print:left-3 -z-10 rounded-lg"
+          className="w-fit h-2.5 lg:h-3.5 absolute top-2 sm:top-3 print:top-3 left-2 lg:left-3 print:left-2 -z-10 rounded-lg print:text-lg"
           style={{ backgroundColor: props.color }}
         >
           <span className="opacity-0 print:text-lg">{props.exp.name}</span>
@@ -119,18 +118,24 @@ const OneExp = (props) => {
           handleClick={props.toggleEdit}
           completed={!props.exp.edit}
         />
-        <textarea
-          rows={1}
-          onChange={props.handleChange}
-          name="description"
-          value={props.exp.description}
-          placeholder="description"
-          disabled={!props.exp.edit}
-          className={`basis-full h-min mt-2 print:mt-0 print:h-max resize-none min-w-0 w-0 border-b-2 bg-transparent px-1 text-gray-600 focus:outline-none ${
-            !props.exp.edit && "border-none"
-          }`}
-          onInput={auto_height}
-        />
+        {props.exp.edit ? (
+          <textarea
+            rows={1}
+            onChange={props.handleChange}
+            name="description"
+            value={props.exp.description}
+            placeholder="description"
+            disabled={!props.exp.edit}
+            className={`basis-full h-min mt-2 resize-none min-w-0 w-0 border-b-2 bg-transparent px-1 text-gray-600 focus:outline-none ${
+              !props.exp.edit && "border-none"
+            }`}
+            onInput={auto_height}
+          />
+        ) : (
+          <p className="basis-full h-min mt-2 print:mt-0 px-1 text-gray-600 print:text-sm">
+            {props.exp.description}
+          </p>
+        )}
       </div>
       {!props.exp.edit && (
         <DeleteOrEdit
