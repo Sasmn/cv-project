@@ -20,6 +20,9 @@ module.exports = {
       fontFamily: {
         kohsan: ["kohsan", "sans-serif"],
       },
+      screens: {
+        print: { raw: "print" },
+      },
     },
   },
   plugins: [],

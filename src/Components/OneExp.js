@@ -68,7 +68,7 @@ const OneExp = (props) => {
           </div>
         )}
         {!props.exp.edit && (
-          <p className="px-1 font-bold">
+          <p className="px-1 font-bold print:text-base">
             {props.exp.from}-{props.exp.to}
           </p>
         )}
@@ -97,10 +97,10 @@ const OneExp = (props) => {
       </div>
       <div className="basis-4/6 md:basis-3/4 h-min flex flex-wrap relative">
         <span
-          className="w-fit h-2 lg:h-3.5 absolute top-2 sm:top-3 left-2 lg:left-3 -z-10 rounded-lg"
+          className="w-fit h-2 lg:h-3.5 absolute top-2 sm:top-3 print:top-4 left-2 lg:left-3 print:left-3 -z-10 rounded-lg"
           style={{ backgroundColor: props.color }}
         >
-          <span className="opacity-0">{props.exp.name}</span>
+          <span className="opacity-0 print:text-lg">{props.exp.name}</span>
         </span>
         <input
           onChange={props.handleChange}
@@ -110,7 +110,7 @@ const OneExp = (props) => {
           type="text"
           placeholder="name"
           disabled={!props.exp.edit}
-          className={`basis-3/4 font-bold min-w-0 w-0 border-b-2 bg-transparent px-1 focus:outline-none ${
+          className={`basis-3/4 font-bold min-w-0 w-0 border-b-2 bg-transparent px-1 print:text-base focus:outline-none ${
             !props.exp.edit && "border-none"
           }`}
         />
@@ -126,7 +126,7 @@ const OneExp = (props) => {
           value={props.exp.description}
           placeholder="description"
           disabled={!props.exp.edit}
-          className={`basis-full h-min mt-2 resize-none min-w-0 w-0 border-b-2 bg-transparent px-1 text-gray-600 focus:outline-none ${
+          className={`basis-full h-min mt-2 print:mt-0 print:h-max resize-none min-w-0 w-0 border-b-2 bg-transparent px-1 text-gray-600 focus:outline-none ${
             !props.exp.edit && "border-none"
           }`}
           onInput={auto_height}

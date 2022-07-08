@@ -35,7 +35,7 @@ const ListItem = (props) => {
         value={props.skill.value}
         type="text"
         disabled={!props.skill.edit}
-        className={`basis-3/4 grow-0 shrink max-w-3/4 px-2 my-2 bg-transparent min-w-0 w-0 focus:outline-none ${
+        className={`basis-3/4 grow-0 shrink max-w-3/4 px-2 my-2 print:my-1 bg-transparent min-w-0 w-0 focus:outline-none ${
           !props.skill.edit && "underline decoration-2 underline-offset-4"
         }`}
         style={{ textDecorationColor: props.color }}

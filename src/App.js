@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import Main from "./Components/Main";
 import { useReactToPrint } from "react-to-print";
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
+// import html2canvas from "html2canvas";
+// import jsPDF from "jspdf";
 
 function App() {
   const [colorTheme, setColorTheme] = useState(
@@ -47,7 +47,7 @@ function App() {
     copyStyles: true,
   });
 
-  const printRef = useRef();
+  // const printRef = useRef();
   // const handleDownloadPdf = async () => {
   //   const element = printRef.current;
   //   const canvas = await html2canvas(element);
