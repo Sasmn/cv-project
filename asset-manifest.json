@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.87d4d38f.css",
+    "main.js": "/static/js/main.dde9e7d7.js",
+    "static/media/KohSantepheap-Regular.ttf": "/static/media/KohSantepheap-Regular.d8043a1b4a6218514a0a.ttf",
+    "static/media/reshot-icon-personal-website-SHMULA9ZYF.svg": "/static/media/reshot-icon-personal-website-SHMULA9ZYF.a54baf5ee106f67f18cebd143ad1ab47.svg",
+    "static/media/reshot-icon-phone-YUPNL5R2TW.svg": "/static/media/reshot-icon-phone-YUPNL5R2TW.268879721fc83c2e1e2b54f6314a6f70.svg",
+    "index.html": "/index.html",
+    "static/media/reshot-icon-email-P9WA8LS724.svg": "/static/media/reshot-icon-email-P9WA8LS724.de25bd30407e2835739f2d257e8eea7b.svg",
+    "static/media/reshot-icon-edit-Q9X5K68PDE.svg": "/static/media/reshot-icon-edit-Q9X5K68PDE.9232e83ee58683a4e0580cd76ff2e3bf.svg",
+    "static/media/reshot-icon-delete-KL8MB62NXD.svg": "/static/media/reshot-icon-delete-KL8MB62NXD.d22c9339c46be962e46dca20c3f39b37.svg",
+    "main.87d4d38f.css.map": "/static/css/main.87d4d38f.css.map",
+    "main.dde9e7d7.js.map": "/static/js/main.dde9e7d7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.87d4d38f.css",
+    "static/js/main.dde9e7d7.js"
+  ]
+}
