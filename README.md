@@ -3,3 +3,5 @@
 A webpage, where the user can build it's own CV. You can choose your own theme (color), and add many skills and experiences.
 
 Built using react and tailwind css.
+
+## demo: https://sasmn.github.io/cv-project/
